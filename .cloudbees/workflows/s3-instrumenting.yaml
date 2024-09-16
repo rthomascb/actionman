@@ -10,10 +10,10 @@ jobs:
         name: Create File
         shell: sh
         run: |
-          mkdir ${{ cloudbees.workspace }}/hellorich
+          mkdir ${{ cloudbees.workspace }}/hello
           for i in file1.txt file2.txt file3.txt
           do
-            echo "hello world" > ${{ cloudbees.workspace }}/hellorich/$i
+            echo "hello world" > ${{ cloudbees.workspace }}/hello/$i
           done
           ls ${{ cloudbees.workspace }}
       - uses: cloudbees-io/configure-aws-credentials@v1
@@ -27,6 +27,6 @@ jobs:
         name: upload to s3
         id: workspace-to-s3-upload
         with:
-          file-path: ${{ cloudbees.workspace }}/hellorich
-          s3-path: hellorich
-          bucket-name: cluster.ecloud-demo.com
+          file-path: ${{ cloudbees.workspace }}/hello
+          s3-path: hello
+          bucket-name: saas-file-upload-test
