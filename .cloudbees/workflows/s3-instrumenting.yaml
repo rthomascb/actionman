@@ -22,7 +22,7 @@ jobs:
           aws-access-key-id: ${{ secrets.aws_access_key_id }}
           aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
           aws-session-token: ${{ secrets.aws_session_token }}
-      - uses: cloudbees-io/s3-upload-object@v1.0.3
+      - uses: cloudbees-io/s3-upload-object@v1
         name: upload to s3
         id: workspace-to-s3-upload
         with:
