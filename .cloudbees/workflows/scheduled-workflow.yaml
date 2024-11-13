@@ -2,9 +2,6 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Scheduled Workflow
 on:
-  push:
-    branches:
-      - "**"
   schedule:
     - cron: 0 * * * *
 jobs:
