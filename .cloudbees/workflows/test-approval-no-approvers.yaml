@@ -6,7 +6,7 @@ on:
     inputs:
       instructions:
         type: string
-        default: Approval test from rthomas. Please ignore.
+        default: "Approval test from rthomas. IMPORTANT: If you receive this email, please forward to rthomas@cloudbees.com. Thanks!"
 jobs:
   build:
     steps:
