@@ -6,7 +6,7 @@ on:
     inputs:
       instructions:
         type: string
-        default: Approve me (parameter)!
+        default: Approval test from rthomas. Please ignore.
 jobs:
   build:
     steps:
@@ -24,4 +24,3 @@ jobs:
       approvers: ""
       disallowLaunchByUser: false
       instructions: ${{ inputs.instructions }}
-
