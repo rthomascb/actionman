@@ -12,7 +12,7 @@ jobs:
       name: Create artifact info 1
       uses: docker://alpine/curl:latest
       run: |
-        response=$(curl -i -X 'POST' "$URL/v2/workflows/runs/artifactinfos" -d "{\"runId\": \"$RUN_ID\", \"runAttempt\": \"$RUN_ATTEMPT\", \"name\": \"rtFact\", \"url\": \"https://test.url\", \"version\": \"1.2.3\", \"type\": \"publish\"}" -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json') || command_failed=1
+        response=$(curl -i -X 'POST' "$URL/v2/workflows/runs/artifactinfos" -d "{\"runId\": \"$RUN_ID\", \"runAttempt\": \"$RUN_ATTEMPT\", \"name\": \"rtFact\", \"url\": \"https://test.url\", \"version\": \"Arbitrary Version\", \"type\": \"publish\"}" -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json') || command_failed=1
         
         # Check response
         if [ ${command_failed:-0} -eq 1 ];
