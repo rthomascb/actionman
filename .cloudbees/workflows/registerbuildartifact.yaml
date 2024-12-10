@@ -5,13 +5,14 @@ on:
   push:
     branches:
       - "**"
+  workflow_dispatch:
 jobs:
   build:
     steps:
       - name: Inform system that an artifact version was created
         uses: cloudbees-io/register-build-artifact-action@v1
         with:
-          name: "myApp"
-          version: "1.0.0"
-          url: "docker.io/myapp/myimg:1.0.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
+          name: myApp
+          version: 1.0.0
+          url: docker.io/myapp/myimg:1.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609
