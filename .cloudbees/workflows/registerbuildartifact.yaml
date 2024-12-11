@@ -13,6 +13,6 @@ jobs:
         uses: cloudbees-io/register-build-artifact@eb9bf63838605cd8b8d9c0eccb602536bc9a83e9
         with:
           name: "rtFactotum"
-          version: "3.0.0"
-          url: "docker.io/myapp/myimg:1.0.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
+          version: "4.0.0"
+          url: "docker.io/myapp/myimg:2.0.0"
+          digest: "d53f06ad9e2f0cec1afe7be784f80d6254f849f3cc6d52945012a786e8b8ede8"
