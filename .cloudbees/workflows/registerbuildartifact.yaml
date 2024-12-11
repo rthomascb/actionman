@@ -10,7 +10,7 @@ jobs:
   build:
     steps:
       - name: Inform system that an artifact version was created
-        uses: cloudbees-io/register-build-artifact@74182984cccdb7ed1e57bc3d2b0b7d04081c957c
+        uses: cloudbees-io/register-build-artifact@eb9bf63838605cd8b8d9c0eccb602536bc9a83e9
         with:
           name: "rtFactotum"
           version: "3.0.0"
