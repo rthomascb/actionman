@@ -6,7 +6,7 @@ on:
     branches:
       - "**"
   workflow_dispatch:
-runs:
+jobs:
   build:
     using: "composite"
     steps:
