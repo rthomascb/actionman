@@ -10,7 +10,7 @@ jobs:
   build:
     steps:
       - name: Inform system that an artifact version was created
-        uses: cloudbees-io/register-build-artifact@v1
+        uses: cloudbees-io/register-build-artifact@9422e606d8cdb41add7763e3a0be17ba94ecb0eb
         with:
           name: "myApp"
           version: "1.0.0"
