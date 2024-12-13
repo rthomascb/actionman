@@ -17,7 +17,6 @@ jobs:
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
-        kind: build
       - name: Fail with missing name
         uses: cloudbees-io/register-build-artifact@v1
         continue-on-error: true
@@ -26,7 +25,6 @@ jobs:
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
-        kind: build
       - name: Fail with missing version
         continue-on-error: true
         uses: cloudbees-io/register-build-artifact@v1
@@ -35,3 +33,8 @@ jobs:
           version: ""
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
+      - name: Print complete
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
