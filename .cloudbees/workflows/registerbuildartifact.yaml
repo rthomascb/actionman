@@ -35,7 +35,7 @@ jobs:
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
       - name: Fail with missing version
-        if: steps.failstep1.outcome != 'success'
+        if: always()
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: "MyName"
