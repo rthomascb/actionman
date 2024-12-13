@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Inform system that an artifact version was created
         uses: cloudbees-io/register-build-artifact@v1
+        if: always()
         with:
           name: "rtFactRegister"
           version: "1.0.0"
