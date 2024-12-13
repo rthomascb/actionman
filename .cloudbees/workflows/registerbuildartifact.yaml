@@ -19,6 +19,7 @@ jobs:
   build-fail-name:
     steps:
       - name: Fail with missing name
+        if: always()
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: ""
@@ -28,6 +29,7 @@ jobs:
   build-fail-version:
     steps:
       - name: Fail with missing version
+        if: always()
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: "MyName"
