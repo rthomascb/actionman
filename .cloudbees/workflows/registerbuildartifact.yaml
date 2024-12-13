@@ -10,24 +10,22 @@ jobs:
   build1:
     steps:
       - name: Inform system that an artifact version was created
-        continue-on-error: true
         uses: cloudbees-io/register-build-artifact@v1
-        if: always()
         with:
           name: "rtFactRegister"
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
       - name: Fail with missing name
-        if: always()
         uses: cloudbees-io/register-build-artifact@v1
+        continue-on-error: true
         with:
           name: ""
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
       - name: Fail with missing version
-        if: always()
+        continue-on-error: true
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: "MyName"
