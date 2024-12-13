@@ -25,7 +25,8 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         run: echo "Completed Step 3"
         continue-on-error: true
-      - name: FailStep1
+      - name: Fail with missing name
+        id: failstep1
         uses: cloudbees-io/register-build-artifact@v1
         continue-on-error: true
         with:
@@ -34,7 +35,7 @@ jobs:
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
       - name: Fail with missing version
-        if: steps.failStep1.outcome != 'success'
+        if: steps.failstep1.outcome != 'success'
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: "MyName"
