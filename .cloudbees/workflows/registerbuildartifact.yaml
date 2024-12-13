@@ -21,7 +21,7 @@ jobs:
         if: always()
         uses: cloudbees-io/register-build-artifact@v1
         with:
-          name: "x"
+          name: ""
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
@@ -30,6 +30,6 @@ jobs:
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: "MyName"
-          version: "y"
+          version: ""
           url: "docker.io/myapp/myimg:1.0.0"
           digest: ""
