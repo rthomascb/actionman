@@ -9,19 +9,24 @@ on:
 jobs:
   build:
     steps:
-      - uses: docker://golang:1.20.3-alpine3.17
-        name: Sleep Before
-        shell: sh
-        run: sleep 10
-      - name: Inform system that an artifact version was created
-        uses: cloudbees-io/register-build-artifact@1601419546d4af0e0ceef77d3e89b779a0874488
-        continue-on-error: true
-        with:
-          name: "rtFactRegister"
-          version: "1.0.0"
-          url: "docker.io/myapp/myimg:1.0.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
-      - uses: docker://golang:1.20.3-alpine3.17
-        name: Sleep After
-        shell: sh
-        run: sleep 30
+    - id: createArtifactInfo3
+      name: Create deployed artifact info w/o digest
+      uses: docker://alpine/curl:latest
+      run: |
+        response=$(curl -i -X 'POST' "$URL/v2/workflows/runs/artifactinfos" -d "{\"runId\": \"$RUN_ID\", \"runAttempt\": \"$RUN_ATTEMPT\", \"name\": \"testArt\", \"url\": \"https://test.url/$RANDOM\", \"version\": \"$RANDOM\", \"type\": \"test\", \"operation\": \"DEPLOYED\"}" -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json') || command_failed=1
+        
+        # Check response
+        if [ ${command_failed:-0} -eq 1 ];
+        then
+          echo "Failed with response '$response'"
+          exit 1
+        fi
+
+        echo "Success with response '$response'"
+        exit 0
+      env:
+        JWT: ${{ cloudbees.api.token }}
+        URL: ${{ cloudbees.api.url }}
+        RUN_ID: ${{ cloudbees.run_id }}
+        RUN_ATTEMPT: ${{ cloudbees.run_attempt }}
+
