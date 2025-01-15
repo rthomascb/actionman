@@ -12,7 +12,7 @@ jobs:
       - name: Deploy artifact
         uses: cloudbees-io/register-deployed-artifact@6464a3c7612144777b46916f597859f6a0dadda7
         with:
-          name: "rtFactRegisterDep"
+          name: "rtFactRegister"
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
