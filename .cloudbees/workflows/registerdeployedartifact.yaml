@@ -10,7 +10,7 @@ jobs:
   build:
     steps:
       - name: Deploy artifact
-        uses: cloudbees-io/register-deployed-artifact@c9161888bb278f5c4d3818d9e6f886588a80bec2
+        uses: cloudbees-io/register-deployed-artifact@6464a3c7612144777b46916f597859f6a0dadda7
         with:
           name: "rtFactRegisterDep"
           version: "1.0.0"
