@@ -6,7 +6,7 @@ on:
     inputs:
       instructions:
         type: string
-        default: Approve me (parameter)!
+        default: If you get this notification, please forward to rthomas@cloudbees.com. Thanks!
 jobs:
   build:
     steps:
