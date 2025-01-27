@@ -6,7 +6,7 @@ on:
     inputs:
       instructions:
         type: string
-        default: "Approval test from rthomas. IMPORTANT: If you receive this email, please forward to rthomas@cloudbees.com. Thanks!"
+        default: "Approval test from rthomas@cloudbees.com. Please ignore. Thanks."
 jobs:
   build:
     steps:
@@ -23,5 +23,5 @@ jobs:
     with:
       approvers: ""
       disallowLaunchByUser: false
-      notifyAllEligibleUsers: false
+      notifyAllEligibleUsers: true
       instructions: ${{ inputs.instructions }}
