@@ -23,5 +23,5 @@ jobs:
     with:
       approvers: ""
       disallowLaunchByUser: false
-      notifyAllEligibleUsers: true
+      notifyAllEligibleUsers: false
       instructions: ${{ inputs.instructions }}
