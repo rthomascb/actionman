@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy artifact
-        uses: cloudbees-gha-cbp/register-built-artifact@cd4955697b4b7873499cf33a9b62cd4b0896f42e
+        uses: cloudbees-gha-cbp/register-built-artifact
         with:
           component-id: "rtComponentId"
           name: "rtFactRegisterFromGitHub"
