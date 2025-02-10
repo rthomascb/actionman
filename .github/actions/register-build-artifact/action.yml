@@ -34,7 +34,7 @@ runs:
         echo "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos"
         
         # Make Platform API call to create artifact_info record
-        response=$(curl --fail-with-body  -X 'POST' "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
+        response=$(curl --fail-with-body  -X 'POST' "$URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
           -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json' \
           --data-binary '@/tmp/payload.json') || command_failed=1
        
@@ -45,9 +45,8 @@ runs:
           exit 1
         fi
       env:
-        JWT: "swkfweru"
+        JWT: ""
         URL: "https://saas-preprod.beescloud.com/orgs/cloudbees-preprod"
-        ID: ${{ inputs.component-id }}
         INPUT_COMPONENT_ID: ${{ inputs.component-id }}
         INPUT_NAME: ${{ inputs.name }}
         INPUT_VERSION: ${{ inputs.version }}
