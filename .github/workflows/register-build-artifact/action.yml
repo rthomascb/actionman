@@ -1,24 +1,21 @@
-# Creates an artifact version association with the workflow run
 name: 'Register build artifact'
+description: 'Creates an artifact version association with the workflow run'
 
-# Controls when the workflow will run
-on:
-  workflow_call:
-    inputs:
-      component-id:
-        description: 'The CloudBees platform component ID..'
-        required: true
-      name:
-        description: 'The name of the artifact.'
-        required: true
-      version:
-        description: 'The version of the artifact.'
-        required: true
-      url:
-        description: 'The url where the artifact version is located e.g. docker.io/myapp/myimg:1.0.0.'
-        required: true
-      digest:
-        description: 'The artifact digest that uniquely and immutably identifies the artifact.'
+inputs:
+  component-id:
+    description: 'The CloudBees platform component ID..'
+    required: true
+  name:
+    description: 'The name of the artifact.'
+    required: true
+  version:
+    description: 'The version of the artifact.'
+    required: true
+  url:
+    description: 'The url where the artifact version is located e.g. docker.io/myapp/myimg:1.0.0.'
+    required: true
+  digest:
+    description: 'The artifact digest that uniquely and immutably identifies the artifact.'
 
 jobs:
   build:
