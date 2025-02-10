@@ -43,14 +43,12 @@ jobs:
             exit 1
           fi
         env:
-          JWT: ${{ cloudbees.api.token }}
-          URL: ${{ cloudbees.api.url }}
+          JWT: 
+          URL: https://saas-preprod.beescloud.com/orgs/cloudbees-preprod 
           INPUT_COMPONENT_ID: ${{ inputs.component-id }}
           INPUT_NAME: ${{ inputs.name }}
           INPUT_VERSION: ${{ inputs.version }}
           INPUT_URL: ${{ inputs.url }}
           INPUT_DIGEST: ${{ inputs.digest }}
-          CLOUDBEES_RUN_ID: ${{ cloudbees.run_id }}
-          CLOUDBEES_RUN_ATTEMPT: ${{ cloudbees.run_attempt }}
           GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/jobs/${{ github.job_id }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
