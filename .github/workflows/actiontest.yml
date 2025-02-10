@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: "actions/checkout@main"
+        uses: actions/checkout@main
       - name: Deploy artifact
-        uses: ./.github/workflows/register-build-artifact@main
+        uses: ./.github/workflows/register-build-artifact
         with:
           component-id: "rtComponentId"
           name: "rtFactRegisterFromGitHub"
