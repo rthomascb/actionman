@@ -28,6 +28,9 @@ runs:
         echo '{ "name": "'"$INPUT_NAME"'", "url": "'"$INPUT_URL"'", "version": "'"$INPUT_VERSION"'", ' > /tmp/payload.json
         echo '"operation": "'"PUBLISHED"'" "sourceUrl":"'"$GITHUB_RUN_URL"'" "digest": "'"$INPUT_DIGEST"'"' >> /tmp/payload.json
 
+        echo This is the payload
+        cat /tmp/payload.json
+        
         # Make Platform API call to create artifact_info record
         response=$(curl --fail-with-body  -X 'POST' "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
           -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json' \
