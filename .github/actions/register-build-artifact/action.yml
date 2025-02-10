@@ -32,7 +32,7 @@ runs:
       run: |
         #Create payload
         echo '{ "name": "'"$INPUT_NAME"'", "url": "'"$INPUT_URL"'", "version": "'"$INPUT_VERSION"'", ' > /tmp/payload.json
-        echo '"operation": "'"PUBLISHED"'" "sourceUrl":"'"$GITHUB_RUN_URL"'" "digest": "'"$INPUT_DIGEST"'"' >> /tmp/payload.json
+        echo '"operation": "'"PUBLISHED"'", "sourceUrl":"'"$GITHUB_RUN_URL"'", "digest": "'"$INPUT_DIGEST"'"' >> /tmp/payload.json
 
         echo This is the payload
         cat /tmp/payload.json
