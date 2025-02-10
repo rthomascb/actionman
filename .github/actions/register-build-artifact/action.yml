@@ -30,6 +30,8 @@ runs:
 
         echo This is the payload
         cat /tmp/payload.json
+        echo This is the POST
+        echo "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos"
         
         # Make Platform API call to create artifact_info record
         response=$(curl --fail-with-body  -X 'POST' "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
