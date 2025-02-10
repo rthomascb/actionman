@@ -43,8 +43,9 @@ jobs:
             exit 1
           fi
         env:
-          JWT: 
-          URL: https://saas-preprod.beescloud.com/orgs/cloudbees-preprod 
+          JWT: "swkfweru" 
+          URL: "https://saas-preprod.beescloud.com/orgs/cloudbees-preprod"
+          ID: ${{ github.event.inputs.component-id }}
           INPUT_COMPONENT_ID: ${{ github.event.inputs.component-id }}
           INPUT_NAME: ${{ github.event.inputs.name }}
           INPUT_VERSION: ${{ github.event.inputs.version }}
