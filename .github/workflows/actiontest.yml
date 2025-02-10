@@ -1,32 +1,20 @@
-# This is a basic workflow that is manually triggered
-
-name: Manual workflow
+#Creates an artifact version association with the workflow run.
+name: 'Register build artifact TEST'
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
-        # The data type of the input
-        type: string
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  build:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ inputs.name }}"
+      - name: Deploy artifact
+        uses: ./.github/actions/register-build-artifact/register-build-artifact@main
+        with:
+          component-id: "rtComponentId"
+          name: "rtFactRegisterFromGitHub"
+          version: "1.0.0"
+          url: "docker.io/myapp/myimg:1.0.0"
+          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
