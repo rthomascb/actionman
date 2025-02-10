@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy artifact
-        uses: ./.github/actions/register-build-artifact/register-build-artifact@main
+        uses: ./.github/workflows/register-build-artifact/register-build-artifact@main
         with:
           component-id: "rtComponentId"
           name: "rtFactRegisterFromGitHub"
