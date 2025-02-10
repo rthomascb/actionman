@@ -45,8 +45,8 @@ jobs:
         env:
           JWT: 
           URL: https://saas-preprod.beescloud.com/orgs/cloudbees-preprod 
-          INPUT_COMPONENT_ID: "${{ github.inputs.component-id }}"
-          INPUT_NAME: "${{ github.event.inputs.name }}"
+          INPUT_COMPONENT_ID: ${{ github.event.inputs.component-id }}
+          INPUT_NAME: ${{ github.event.inputs.name }}
           INPUT_VERSION: ${{ github.event.inputs.version }}
           INPUT_URL: ${{ github.event.inputs.url }}
           INPUT_DIGEST: ${{ github.event.inputs.digest }}
