@@ -19,33 +19,33 @@ inputs:
 
 runs:
   using: 'bash'
-    steps:
-      - id: registerBuildArtifact
-        name: Register CloudBees Build Artifact
-        run: |
-          #Create payload
-          echo '{ "name": "'"$INPUT_NAME"'", "url": "'"$INPUT_URL"'", "version": "'"$INPUT_VERSION"'", ' > /tmp/payload.json
-          echo '"operation": "'"PUBLISHED"'" "sourceUrl":"'"$GITHUB_RUN_URL"'" "digest": "'"$INPUT_DIGEST"'"' >> /tmp/payload.json
-  
-          # Make Platform API call to create artifact_info record
-          response=$(curl --fail-with-body  -X 'POST' "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
-            -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json' \
-            --data-binary '@/tmp/payload.json') || command_failed=1
-         
-          # Check curl exit code
-          if [ ${command_failed:-0} -eq 1 ];
-          then
-            echo "Platform API call failed with error: '$response'"
-            exit 1
-          fi
-        env:
-          JWT: "swkfweru" 
-          URL: "https://saas-preprod.beescloud.com/orgs/cloudbees-preprod"
-          ID: ${{ inputs.component-id }}
-          INPUT_COMPONENT_ID: ${{ inputs.component-id }}
-          INPUT_NAME: ${{ inputs.name }}
-          INPUT_VERSION: ${{ inputs.version }}
-          INPUT_URL: ${{ inputs.url }}
-          INPUT_DIGEST: ${{ inputs.digest }}
-          GITHUB_RUN_URL: ${{ github.repositoryUrl }}/actions/jobs/${{ github.job }}
-          GH_TOKEN: ${{ github.secrets.GITHUB_TOKEN }}
+  steps:
+    - id: registerBuildArtifact
+      name: Register CloudBees Build Artifact
+      run: |
+        #Create payload
+        echo '{ "name": "'"$INPUT_NAME"'", "url": "'"$INPUT_URL"'", "version": "'"$INPUT_VERSION"'", ' > /tmp/payload.json
+        echo '"operation": "'"PUBLISHED"'" "sourceUrl":"'"$GITHUB_RUN_URL"'" "digest": "'"$INPUT_DIGEST"'"' >> /tmp/payload.json
+
+        # Make Platform API call to create artifact_info record
+        response=$(curl --fail-with-body  -X 'POST' "$INPUT_URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
+          -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json' \
+          --data-binary '@/tmp/payload.json') || command_failed=1
+       
+        # Check curl exit code
+        if [ ${command_failed:-0} -eq 1 ];
+        then
+          echo "Platform API call failed with error: '$response'"
+          exit 1
+        fi
+      env:
+        JWT: "swkfweru"
+        URL: "https://saas-preprod.beescloud.com/orgs/cloudbees-preprod"
+        ID: ${{ inputs.component-id }}
+        INPUT_COMPONENT_ID: ${{ inputs.component-id }}
+        INPUT_NAME: ${{ inputs.name }}
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_URL: ${{ inputs.url }}
+        INPUT_DIGEST: ${{ inputs.digest }}
+        GITHUB_RUN_URL: ${{ github.repositoryUrl }}/actions/jobs/${{ github.job }}
+        GH_TOKEN: ${{ github.secrets.GITHUB_TOKEN }}
