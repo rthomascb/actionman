@@ -38,8 +38,8 @@ runs:
         cat /tmp/payload.json
         echo This is the POST
         echo "$URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos"
-        echo CLOUDBEES_PLATFORM_PAT=$CLOUDBEES_PLATFORM_PAT
-        echo CLOUDBEES_PLATFORM_URL=$CLOUDBEES_PLATFORM_URL
+        echo CLOUDBEES_PLATFORM_PAT="$JWT"
+        echo CLOUDBEES_PLATFORM_URL="$URL"
 
         # Make Platform API call to create artifact_info record
         response=$(curl --fail-with-body  -X 'POST' "$URL/v2/resources/$INPUT_COMPONENT_ID/artifactinfos" \
