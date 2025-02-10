@@ -18,10 +18,10 @@ inputs:
     description: 'The artifact digest that uniquely and immutably identifies the artifact.'
 
 runs:
-  shell: bash
   steps:
     - id: registerBuildArtifact
       name: Register CloudBees Build Artifact
+      shell: bash
       run: |
         #Create payload
         echo '{ "name": "'"$INPUT_NAME"'", "url": "'"$INPUT_URL"'", "version": "'"$INPUT_VERSION"'", ' > /tmp/payload.json
