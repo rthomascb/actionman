@@ -15,7 +15,7 @@ jobs:
       - name: Deploy artifact
         uses: ./.github/actions/register-build-artifact
         with:
-          component-id: "rtComponentId"
+          component-id: "172f9991-e542-4605-958f-3ab17f2f5cda"
           name: "rtFactRegisterFromGitHub"
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
