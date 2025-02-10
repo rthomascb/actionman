@@ -17,9 +17,8 @@ inputs:
   digest:
     description: 'The artifact digest that uniquely and immutably identifies the artifact.'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+runs:
+  using: 'bash'
     steps:
       - id: registerBuildArtifact
         name: Register CloudBees Build Artifact
@@ -44,9 +43,9 @@ jobs:
           URL: "https://saas-preprod.beescloud.com/orgs/cloudbees-preprod"
           ID: ${{ inputs.component-id }}
           INPUT_COMPONENT_ID: ${{ inputs.component-id }}
-          INPUT_NAME: ${{ github.event.inputs.name }}
-          INPUT_VERSION: ${{ github.event.inputs.version }}
-          INPUT_URL: ${{ github.event.inputs.url }}
-          INPUT_DIGEST: ${{ github.event.inputs.digest }}
+          INPUT_NAME: ${{ inputs.name }}
+          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_URL: ${{ inputs.url }}
+          INPUT_DIGEST: ${{ inputs.digest }}
           GITHUB_RUN_URL: ${{ github.repositoryUrl }}/actions/jobs/${{ github.job }}
           GH_TOKEN: ${{ github.secrets.GITHUB_TOKEN }}
