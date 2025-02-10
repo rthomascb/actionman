@@ -18,6 +18,7 @@ inputs:
     description: 'The artifact digest that uniquely and immutably identifies the artifact.'
 
 runs:
+  using: node16
   steps:
     - id: registerBuildArtifact
       name: Register CloudBees Build Artifact
