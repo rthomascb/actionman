@@ -16,7 +16,7 @@ jobs:
         uses: ./.github/actions/register-build-artifact
         with:
           component-id: "172f9991-e542-4605-958f-3ab17f2f5cda"
-          name: "rtFactRegisterFromGitHub"
+          name: "rtFactRegister"
           version: "1.0.0"
           url: "docker.io/myapp/myimg:1.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
