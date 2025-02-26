@@ -13,7 +13,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@main
       - name: Deploy artifact
-        uses: cloudbees-gha-cbp/register-build-artifact@main
+        uses: cloudbees-gha-cbp/register-build-artifact@8353460a12a04c3ce6599df9e6005300ee6ad7a2
         with:
           component-id: "172f9991-e542-4605-958f-3ab17f2f5cda"
           name: "rtFactRegister"
