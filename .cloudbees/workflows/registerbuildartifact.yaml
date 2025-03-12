@@ -7,7 +7,7 @@ jobs:
   build:
     steps:
       - name: Inform system that an artifact version was created
-        uses: cloudbees-io/register-build-artifact@fb5b44c0bc21b7d8344e179b559c674cfe5e2d7e
+        uses: cloudbees-io/register-build-artifact@v1
         continue-on-error: true
         with:
           name: rtFactRegister
