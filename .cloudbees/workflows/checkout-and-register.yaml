@@ -1,14 +1,7 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: SelfTest
-
-on:
-  push:
-    branches:
-      - "*"
-
 jobs:
-
   build:
     if: cloudbees.api.url == 'https://api.saas-preprod.beescloud.com' || cloudbees.api.url == 'https://api.cloudbees.io'
     permissions:
@@ -17,28 +10,23 @@ jobs:
     steps:
       - name: Git checkout
         uses: https://github.com/cloudbees-io/checkout@6cb6ea5adf8ab555fbcd35d07410fcf0f01175fa
-
       - name: Run unit tests and verify coding rules
         uses: docker://golang:1.23.1
         run: |
           make verify
-
       - name: Login to AWS
         uses: https://github.com/cloudbees-io/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
           role-to-assume: ${{ vars.oidc_staging_iam_role }}
           role-duration-seconds: "3600"
-
       - name: Configure container registry for Staging ECR
         uses: https://github.com/cloudbees-io/configure-ecr-credentials@v1
-
       - name: Build image
         uses: https://github.com/cloudbees-io/kaniko@v1
         with:
           destination: 020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/cloudbees-io-checkout:${{ cloudbees.scm.sha }},020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/cloudbees-io-checkout:latest
           labels: maintainer=sdp-pod-3,email=engineering@cloudbees.io
-
   test:
     if: cloudbees.api.url == 'https://api.saas-preprod.beescloud.com'
     needs: build
@@ -54,5 +42,5 @@ jobs:
           [ -d .git ]
           [ -f Dockerfile ]
           go build .
-
-
+on:
+  workflow_dispatch:
