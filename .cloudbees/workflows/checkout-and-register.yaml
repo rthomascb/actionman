@@ -7,7 +7,7 @@ jobs:
   build:
     steps:
       - name: Checkout
-        uses: cloudbees-io/checkout@27fae290d70958619fb0696c24df053e4aefea3b
+        uses: cloudbees-io/checkout@da6498107e4a9aa9dd4c585de22186f5f4b0cad2
       - name: Say hello
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
