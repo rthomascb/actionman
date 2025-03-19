@@ -1,17 +1,58 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: My workflow
+name: SelfTest
+
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - "*"
+
 jobs:
+
   build:
+    if: cloudbees.api.url == 'https://api.saas-preprod.beescloud.com' || cloudbees.api.url == 'https://api.cloudbees.io'
+    permissions:
+      scm-token-own: read
+      id-token: write
     steps:
-      - name: Checkout
-        uses: cloudbees-io/checkout@6cb6ea5adf8ab555fbcd35d07410fcf0f01175fa
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
+      - name: Git checkout
+        uses: https://github.com/cloudbees-io/checkout@6cb6ea5adf8ab555fbcd35d07410fcf0f01175fa
+
+      - name: Run unit tests and verify coding rules
+        uses: docker://golang:1.23.1
         run: |
-          echo "Display commit ID"
+          make verify
+
+      - name: Login to AWS
+        uses: https://github.com/cloudbees-io/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ vars.oidc_staging_iam_role }}
+          role-duration-seconds: "3600"
+
+      - name: Configure container registry for Staging ECR
+        uses: https://github.com/cloudbees-io/configure-ecr-credentials@v1
+
+      - name: Build image
+        uses: https://github.com/cloudbees-io/kaniko@v1
+        with:
+          destination: 020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/cloudbees-io-checkout:${{ cloudbees.scm.sha }},020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/cloudbees-io-checkout:latest
+          labels: maintainer=sdp-pod-3,email=engineering@cloudbees.io
+
+  test:
+    if: cloudbees.api.url == 'https://api.saas-preprod.beescloud.com'
+    needs: build
+    steps:
+      - name: Run Action
+        uses: ./.cloudbees/testing
+        env:
+          RUNNER_DEBUG: "1"
+      - name: Verify that the repo was checked out
+        uses: docker://golang:1.23.1
+        run: |
+          set -x
+          [ -d .git ]
+          [ -f Dockerfile ]
+          go build .
 
 
