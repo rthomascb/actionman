@@ -22,10 +22,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build container image with Kaniko (Rich)
         uses: cloudbees-io/kaniko@v1
+        id: kanikostep
         with:
           destination: docker.io/rthomascb/docker-demo:0.0.1-SNAPSHOT
       - name: Display digest
         uses: docker://eclipse-temurin:21-alpine
         shell: sh
         run: |
-          echo Digest= ${{ steps.build.outputs.digest }}
+          echo Digest= ${{ kanikostep.outputs.digest }}
