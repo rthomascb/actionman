@@ -24,3 +24,8 @@ jobs:
         uses: cloudbees-io/kaniko@v1
         with:
           destination: docker.io/rthomascb/docker-demo:0.0.1-SNAPSHOT
+      - name: Display digest
+        uses: docker://eclipse-temurin:21-alpine
+        shell: sh
+        run: |
+          echo Digest= ${{ steps.build.outputs.digest }}
