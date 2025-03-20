@@ -29,4 +29,4 @@ jobs:
         uses: docker://eclipse-temurin:21-alpine
         shell: sh
         run: |
-          echo Digest= ${{ kanikostep.outputs.digest }}
+          echo Digest= ${{ steps.kanikostep.outputs.digest }}
