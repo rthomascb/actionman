@@ -14,6 +14,6 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
-          echo ID= ${{ steps.checkout.outputs.commid-id }}
-          echo URL= ${{ steps.checkout.outputs.commid-url }}
+          echo ID= ${{ steps.checkout.outputs.commit-id }}
+          echo URL= ${{ steps.checkout.outputs.commit-url }}
 
