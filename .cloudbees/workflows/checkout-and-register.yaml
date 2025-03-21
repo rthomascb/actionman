@@ -9,11 +9,11 @@ jobs:
       - name: Checkout
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout
-      - name: Say hello
+      - name: Commit
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "hello world"
+          echo "Commit details:"
           echo ID= ${{ steps.checkout.outputs.commit-id }}
           echo URL= ${{ steps.checkout.outputs.commit-url }}
 
