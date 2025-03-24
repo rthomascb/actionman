@@ -9,6 +9,8 @@ jobs:
       - name: Checkout
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout
+        env:
+          RUNNER_DEBUG: "1"        
       - name: Commit
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
