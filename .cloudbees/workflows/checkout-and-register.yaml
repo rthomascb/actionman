@@ -14,6 +14,8 @@ jobs:
         shell: sh
         run: |
           echo "Commit details:"
+          echo ID= ${{ steps.checkout.outputs.provider }}
+          echo URL= ${{ steps.checkout.outputs.repository-url }}
           echo ID= ${{ steps.checkout.outputs.commit-id }}
           echo URL= ${{ steps.checkout.outputs.commit-url }}
 
