@@ -18,6 +18,7 @@ jobs:
           echo "Commit details:"
           echo Provider = ${{ steps.checkout.outputs.provider }}
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
-          echo Commit ID= ${{ steps.checkout.outputs.commit-id }}
-          echo Commit URL= ${{ steps.checkout.outputs.commit-url }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
+          echo Branch = ${{ steps.checkout.outputs.branch }}
 
