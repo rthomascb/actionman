@@ -6,9 +6,16 @@ on:
 jobs:
   build:
     steps:
-      - name: Checkout
+      - name: Checkout1
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
-        id: checkout
+        id: checkout1
+        env:
+          RUNNER_DEBUG: "1"        
+      - name: Checkout2
+        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        id: checkout2
+        with:
+            provider: "github"
         env:
           RUNNER_DEBUG: "1"        
       - name: Commit
@@ -16,9 +23,9 @@ jobs:
         shell: sh
         run: |
           echo "Commit details:"
-          echo Provider = ${{ steps.checkout.outputs.provider }}
-          echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
-          echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
-          echo Branch = ${{ steps.checkout.outputs.branch }}
+          echo Provider = ${{ steps.checkout1.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
+          echo Branch = ${{ steps.checkout1.outputs.branch }}
 
