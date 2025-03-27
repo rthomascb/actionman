@@ -4,7 +4,7 @@ name: My workflow
 on:
   workflow_dispatch:
 jobs:
-  build1:
+  build:
     steps:
       - name: Checkout1
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -21,8 +21,6 @@ jobs:
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Branch = ${{ steps.checkout1.outputs.branch }}
-  build2:
-    steps:
       - name: Checkout2
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout2
