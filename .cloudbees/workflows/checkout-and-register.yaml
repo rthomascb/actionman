@@ -16,16 +16,23 @@ jobs:
         id: checkout2
         with:
             provider: "github"
+            repository: "rthomascb/anotherrepo"
         env:
           RUNNER_DEBUG: "1"        
       - name: Commit
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Commit details:"
+          echo "Commit 1:"
           echo Provider = ${{ steps.checkout1.outputs.provider }}
           echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Branch = ${{ steps.checkout1.outputs.branch }}
+          echo "Commit 2:"
+          echo Provider = ${{ steps.checkout2.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
+          echo Branch = ${{ steps.checkout2.outputs.branch }}
 
