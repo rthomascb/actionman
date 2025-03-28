@@ -47,7 +47,7 @@ jobs:
         uses: docker://golang:1.23.1
         shell: sh
         run: |
-          if [ "${{ build.steps.checkout2.outputs.provider }}" != "bad" ]; then
+          if [ "${{ job.build.steps.checkout2.outputs.provider }}" != "bad" ]; then
             echo "The provider is wrong"
           fi
 
