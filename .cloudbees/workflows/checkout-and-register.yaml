@@ -27,6 +27,7 @@ jobs:
         with:
             provider: "github"
             repository: "rthomascb/anotherrepo"
+            ref: v1
         env:
           RUNNER_DEBUG: "1"        
       - name: Commit2
