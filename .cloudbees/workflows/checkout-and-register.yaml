@@ -40,4 +40,14 @@ jobs:
           echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Branch = ${{ steps.checkout2.outputs.branch }}
+  test:
+    needs: build
+    steps:
+      - name: Verify that the repo was checked out
+        uses: docker://golang:1.23.1
+        shell: sh
+        run: |
+          if [ "${{ steps.checkout2.outputs.provider }}" != "bad" ]; then
+            echo "The provider is wrong"
+          fi
 
