@@ -37,6 +37,10 @@ jobs:
         shell: sh
         run: |
           echo "Commit 2:"
+          echo "Inputs:"
+          echo "  provider: github"
+          echo "  repository: rthomascb/anotherrepo"
+          echo "  ref v1"
           echo Provider = ${{ steps.checkout2.outputs.provider }}
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
@@ -58,6 +62,10 @@ jobs:
         shell: sh
         run: |
           echo "Commit 2:"
+          echo "Inputs:"
+          echo "  provider: github"
+          echo "  repository: rthomascb/anotherrepo"
+          echo "  ref 5991d1070a23ed3e5343218e6a0e8b79ce8a174c"
           echo Provider = ${{ steps.checkout3.outputs.provider }}
           echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
