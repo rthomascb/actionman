@@ -4,7 +4,7 @@ name: My workflow
 on:
   workflow_dispatch:
 jobs:
-  build:
+  build_by_repo:
     steps:
       - name: Checkout1
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -21,7 +21,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Branch = ${{ steps.checkout1.outputs.branch }}
-  build2:
+  build_by_tag:
     steps:
       - name: Checkout2
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -38,13 +38,30 @@ jobs:
         run: |
           echo "Commit 2:"
           echo Provider = ${{ steps.checkout2.outputs.provider }}
-          if [ "${{ steps.checkout2.outputs.provider }}" != "bad" ]; then
-            echo "The provider is wrong"
-          fi          
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Branch = ${{ steps.checkout2.outputs.branch }}
-
+  build_by_commit_id:
+    steps:
+      - name: Checkout3
+        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        id: checkout2
+        with:
+            provider: "github"
+            repository: "rthomascb/anotherrepo"
+            ref: 5991d1070a23ed3e5343218e6a0e8b79ce8a174c
+        env:
+          RUNNER_DEBUG: "1"        
+      - name: Commit3
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Commit 2:"
+          echo Provider = ${{ steps.checkout3.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
+          echo Branch = ${{ steps.checkout3.outputs.branch }}
 
 
