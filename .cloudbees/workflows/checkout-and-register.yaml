@@ -16,7 +16,9 @@ jobs:
         shell: sh
         run: |
           echo "Commit 1:"
-          echo Provider = ${{ steps.checkout1.outputs.provider }}
+          if [${{ steps.checkout1.outputs.provider }} != 'github']; then
+            echo Error: Provider=${{ steps.checkout1.outputs.provider }}, expected 'github'
+          fi
           echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
