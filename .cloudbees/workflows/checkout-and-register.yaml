@@ -4,7 +4,7 @@ name: My workflow
 on:
   workflow_dispatch:
 jobs:
-  build_by_repo:
+  Test1:
     steps:
       - name: Checkout1
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -21,7 +21,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Ref = ${{ steps.checkout1.outputs.ref }}
-  build_by_tag:
+  Test2:
     steps:
       - name: Checkout2
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -46,7 +46,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
-  build_by_commit_id:
+  Test3:
     steps:
       - name: Checkout3
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -70,6 +70,6 @@ jobs:
           echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
-          echo Ref = ${{ steps.checkout3.outputs.ref }}
+          echo Ref = ${{ steps.checkout3.outputs.branch }}
 
 
