@@ -18,6 +18,7 @@ jobs:
           echo "Commit 1:"
           if [${{ steps.checkout1.outputs.provider }} != 'github']; then
             echo Error: Provider=${{ steps.checkout1.outputs.provider }}, expected 'github'
+            exit 1
           fi
           echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
