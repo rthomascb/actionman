@@ -81,7 +81,7 @@ jobs:
         id: checkout4
         with:
             provider: "gitlab"
-            repository: "https://gitlab.com/rthomascb/actionman3"
+            repository: "rthomascb/actionman3"
             token: ${{ secrets.gitlab_PAT }}
         env:
           RUNNER_DEBUG: "1"        
