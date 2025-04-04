@@ -73,8 +73,8 @@ jobs:
           echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
-          echo Ref = ${{ steps.checkout3.outputs.branch }}
-Test4:
+          echo Ref = ${{ steps.checkout3.outputs.ref }}
+  Test4:
     steps:
       - name: Checkout4
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
@@ -93,11 +93,11 @@ Test4:
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
-          echo Provider = ${{ steps.checkout3.outputs.provider }}
-          echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
-          echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
-          echo Ref = ${{ steps.checkout3.outputs.branch }}
+          echo Provider = ${{ steps.checkout4.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout4.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout4.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout4.outputs.commit-url }}
+          echo Ref = ${{ steps.checkout4.outputs.ref }}
 
 
 
