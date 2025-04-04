@@ -82,7 +82,7 @@ jobs:
         with:
             provider: "gitlab"
             repository: "https://gitlab.com/rthomascb/actionman3"
-            token: ${{ secrtes.gitlab_PAT }}
+            token: ${{ secrets.gitlab_PAT }}
         env:
           RUNNER_DEBUG: "1"        
       - name: Commit4
