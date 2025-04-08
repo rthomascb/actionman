@@ -115,7 +115,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Commit 4:"
+          echo "Commit 5:"
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
@@ -140,7 +140,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Commit 4:"
+          echo "Commit 6:"
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
@@ -165,7 +165,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Commit 4:"
+          echo "Commit 7:"
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
