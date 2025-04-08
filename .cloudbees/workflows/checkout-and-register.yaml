@@ -99,6 +99,78 @@ jobs:
           echo Commit ID = ${{ steps.checkout4.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout4.outputs.commit-url }}
           echo Ref = ${{ steps.checkout4.outputs.ref }}
-
-
+  Test5:
+    steps:
+      - name: Checkout5
+        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        id: checkout
+        with:
+            provider: "gitlab"
+            repository: "rthomascb/actionman3"
+            ref: "v1"
+            token: ${{ secrets.gitlab_PAT }}
+        env:
+          RUNNER_DEBUG: "1"        
+      - name: Commit5
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Commit 4:"
+          echo "Inputs:"
+          echo "  provider: gitlab"
+          echo "  repository: https://gitlab.com/rthomascb/actionman3"
+          echo Provider = ${{ steps.checkout.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
+          echo Ref = ${{ steps.checkout.outputs.ref }}
+  Test6:
+    steps:
+      - name: Checkout6
+        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        id: checkout
+        with:
+            provider: "gitlab"
+            repository: "rthomascb/actionman3"
+            ref: "d19d4460d89a71cee9a21a386eb5b4fa0688809b"
+            token: ${{ secrets.gitlab_PAT }}
+        env:
+          RUNNER_DEBUG: "1"        
+      - name: Commit6
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Commit 4:"
+          echo "Inputs:"
+          echo "  provider: gitlab"
+          echo "  repository: https://gitlab.com/rthomascb/actionman3"
+          echo Provider = ${{ steps.checkout.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
+          echo Ref = ${{ steps.checkout.outputs.ref }}       
+  Test7:
+    steps:
+      - name: Checkout7
+        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        id: checkout
+        with:
+            provider: "gitlab"
+            repository: "rthomascb/actionman3"
+            token: ${{ secrets.gitlab_PAT }}
+        env:
+          RUNNER_DEBUG: "1"        
+      - name: Commit7
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Commit 4:"
+          echo "Inputs:"
+          echo "  provider: gitlab"
+          echo "  repository: https://gitlab.com/rthomascb/actionman3"
+          echo Provider = ${{ steps.checkout.outputs.provider }}
+          echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
+          echo Ref = ${{ steps.checkout.outputs.ref }}
 
