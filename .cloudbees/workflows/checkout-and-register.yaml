@@ -157,6 +157,7 @@ jobs:
         with:
             provider: "gitlab"
             repository: "rthomascb/actionman3"
+            ref: "rthomas-test"
             token: ${{ secrets.gitlab_PAT }}
         env:
           RUNNER_DEBUG: "1"        
