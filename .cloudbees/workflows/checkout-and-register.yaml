@@ -3,6 +3,10 @@ kind: workflow
 name: My workflow
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - rthomas-test
 jobs:
   Test1:
     steps:
@@ -10,7 +14,7 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout1
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit1
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -31,11 +35,11 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout2
         with:
-            provider: "github"
-            repository: "rthomascb/anotherrepo"
-            ref: v1
+          provider: github
+          repository: rthomascb/anotherrepo
+          ref: v1
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit2
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -56,11 +60,11 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout3
         with:
-            provider: "github"
-            repository: "rthomascb/anotherrepo"
-            ref: 5991d1070a23ed3e5343218e6a0e8b79ce8a174c
+          provider: github
+          repository: rthomascb/anotherrepo
+          ref: 5991d1070a23ed3e5343218e6a0e8b79ce8a174c
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit3
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -81,11 +85,11 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout4
         with:
-            provider: "gitlab"
-            repository: "rthomascb/actionman3"
-            token: ${{ secrets.gitlab_PAT }}
+          provider: gitlab
+          repository: rthomascb/actionman3
+          token: ${{ secrets.gitlab_PAT }}
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit4
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -105,12 +109,12 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout
         with:
-            provider: "gitlab"
-            repository: "rthomascb/actionman3"
-            ref: "v1"
-            token: ${{ secrets.gitlab_PAT }}
+          provider: gitlab
+          repository: rthomascb/actionman3
+          ref: v1
+          token: ${{ secrets.gitlab_PAT }}
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit5
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -130,12 +134,12 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout
         with:
-            provider: "gitlab"
-            repository: "rthomascb/actionman3"
-            ref: "d19d4460d89a71cee9a21a386eb5b4fa0688809b"
-            token: ${{ secrets.gitlab_PAT }}
+          provider: gitlab
+          repository: rthomascb/actionman3
+          ref: d19d4460d89a71cee9a21a386eb5b4fa0688809b
+          token: ${{ secrets.gitlab_PAT }}
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit6
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -155,12 +159,12 @@ jobs:
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout
         with:
-            provider: "gitlab"
-            repository: "rthomascb/actionman3"
-            ref: "rthomas-test"
-            token: ${{ secrets.gitlab_PAT }}
+          provider: gitlab
+          repository: rthomascb/actionman3
+          ref: rthomas-test
+          token: ${{ secrets.gitlab_PAT }}
         env:
-          RUNNER_DEBUG: "1"        
+          RUNNER_DEBUG: "1"
       - name: Commit7
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
@@ -174,4 +178,3 @@ jobs:
           echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
-
