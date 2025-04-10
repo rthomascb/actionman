@@ -20,11 +20,6 @@ jobs:
         shell: sh
         run: |
           echo "Commit 1:"
-          if [ "${{ steps.checkout1.outputs.provider }}" != "github" ]; then
-            echo "Error: Provider=${{ steps.checkout1.outputs.provider }}, expected 'github'"
-            exit 1
-          fi
-          echo Provider = ${{ steps.checkout1.outputs.provider }}
           echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
@@ -49,7 +44,6 @@ jobs:
           echo "  provider: github"
           echo "  repository: rthomascb/anotherrepo"
           echo "  ref v1"
-          echo Provider = ${{ steps.checkout2.outputs.provider }}
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
@@ -74,7 +68,6 @@ jobs:
           echo "  provider: github"
           echo "  repository: rthomascb/anotherrepo"
           echo "  ref 5991d1070a23ed3e5343218e6a0e8b79ce8a174c"
-          echo Provider = ${{ steps.checkout3.outputs.provider }}
           echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
@@ -98,7 +91,6 @@ jobs:
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
-          echo Provider = ${{ steps.checkout4.outputs.provider }}
           echo Repository URL = ${{ steps.checkout4.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout4.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout4.outputs.commit-url }}
@@ -123,7 +115,6 @@ jobs:
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
-          echo Provider = ${{ steps.checkout.outputs.provider }}
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
@@ -148,7 +139,6 @@ jobs:
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
-          echo Provider = ${{ steps.checkout.outputs.provider }}
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
@@ -173,7 +163,6 @@ jobs:
           echo "Inputs:"
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
-          echo Provider = ${{ steps.checkout.outputs.provider }}
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
