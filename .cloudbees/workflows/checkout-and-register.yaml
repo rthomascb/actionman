@@ -140,7 +140,7 @@ jobs:
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}       
   Test7:
