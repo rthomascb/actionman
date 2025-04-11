@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "Commit 1:"
           echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout1.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout1.outputs.commit }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Ref = ${{ steps.checkout1.outputs.ref }}
   Test2:
@@ -45,7 +45,7 @@ jobs:
           echo "  repository: rthomascb/anotherrepo"
           echo "  ref v1"
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout2.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout2.outputs.commit }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
   Test3:
@@ -92,7 +92,7 @@ jobs:
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
           echo Repository URL = ${{ steps.checkout4.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout4.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout4.outputs.commit }}
           echo Commit URL = ${{ steps.checkout4.outputs.commit-url }}
           echo Ref = ${{ steps.checkout4.outputs.ref }}
   Test5:
@@ -116,7 +116,7 @@ jobs:
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
   Test6:
@@ -164,6 +164,6 @@ jobs:
           echo "  provider: gitlab"
           echo "  repository: https://gitlab.com/rthomascb/actionman3"
           echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
