@@ -69,7 +69,7 @@ jobs:
           echo "  repository: rthomascb/anotherrepo"
           echo "  ref 5991d1070a23ed3e5343218e6a0e8b79ce8a174c"
           echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout3.outputs.commit-id }}
+          echo Commit ID = ${{ steps.checkout3.outputs.commit }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
           echo Ref = ${{ steps.checkout3.outputs.ref }}
   Test4:
