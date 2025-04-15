@@ -3,10 +3,6 @@ kind: workflow
 name: Checkout and register too
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-      - rthomas-test
 jobs:
   checkout:
     steps:
@@ -34,6 +30,4 @@ jobs:
           repository-url: ${{ steps.checkout.outputs.repository-url }}
           commit: ${{ steps.checkout.outputs.commit }}
           commit-url: ${{ steps.checkout.outputs.commit-url }}
-          ref: ${{ steps.checkout.outputs.ref }}          
-
-
+          ref: ${{ steps.checkout.outputs.ref }}
