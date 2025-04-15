@@ -1,0 +1,26 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Checkout and register too
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - rthomas-test
+jobs:
+  Test1:
+    steps:
+      - name: Checkout
+        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        id: checkout
+        env:
+          RUNNER_DEBUG: "1"
+      - name: Commit
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Commit:"
+          echo Repository URL = ${{ steps.checkout.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout.outputs.commit }}
+          echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
+          echo Ref = ${{ steps.checkout.outputs.ref }}
