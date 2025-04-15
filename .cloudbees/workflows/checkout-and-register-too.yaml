@@ -8,14 +8,14 @@ on:
       - main
       - rthomas-test
 jobs:
-  Test1:
+  checkout:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
         id: checkout
         env:
           RUNNER_DEBUG: "1"
-      - name: Commit
+      - name: Debug
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
@@ -24,3 +24,12 @@ jobs:
           echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
+      - name: Register artifact version
+        uses: cloudbees-io/register-build-artifact@v1
+        with:
+          name: rtFactRegister
+          version: 1.0.1222
+          url: docker.io/myapp/myimg:1.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609
+
+
