@@ -4,9 +4,9 @@ name: label artifact version
 on:
   workflow_dispatch:
 jobs:
-  success_add_labels_to_artifact_ver:
+  build:
     steps:
-      - name: build
+      - name: step1
         uses: cloudbees-io/label-artifact-version@rthomas-test
         with:
           component-id: 065b2595-cd1e-415d-9c5b-cab06074b641
