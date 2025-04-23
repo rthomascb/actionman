@@ -10,6 +10,6 @@ jobs:
         uses: http://github.com/cloudbees-io/label-artifact-version@CBP-12420
         with:
           component-id: 172f9991-e542-4605-958f-3ab17f2f5cda
-          artifact-id: f089759c-9a6c-4c5b-befb-d70ca006625c
+          artifact-id: dddd
           labels: "Enter,     your labels,here!    , Thanks."
           operation: "ADD"
