@@ -6,7 +6,7 @@ on:
 jobs:
   success_add_labels_to_artifact_ver:
     steps:
-      - name: success_add_labels_to_artifact_ver
+      - name: build
         uses: cloudbees-io/label-artifact-version@rthomas-test
         with:
           component-id: 065b2595-cd1e-415d-9c5b-cab06074b641
