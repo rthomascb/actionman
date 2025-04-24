@@ -1,15 +1,18 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: label artifact version
+name: LabelArtifactVersion
 on:
+  push:
+    branches:
+      - "**"
   workflow_dispatch:
 jobs:
-  build:
+  success_default_replace_labels_to_artifact_ver:
     steps:
-      - name: step1
-        uses: http://github.com/cloudbees-io/label-artifact-version@CBP-12420
+      - name: success_default_replace_labels_to_artifact_ver
+        uses: cloudbees-io/label-artifact-version@CBP-12420
         with:
-          component-id: 172f9991-e542-4605-958f-3ab17f2f5cda
-          artifact-id: af204f43-58cc-43c4-92ad-b689f8aa3f07
-          labels: "Enter,     your labels,here!    , Thanks."
-          operation: "ADD"
+          component-id: "065b2595-cd1e-415d-9c5b-cab06074b641"
+          artifact-id: "f089759c-9a6c-4c5b-befb-d70ca006625c"
+          labels: "Default,     replace, operation , performed."
+
