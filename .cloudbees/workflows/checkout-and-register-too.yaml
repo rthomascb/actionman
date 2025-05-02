@@ -2,10 +2,7 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Checkout and register too
 on:
-  pull_request:
-    branches:
-      - main
-      - rthomas-test
+  workflow_dispatch:
 jobs:
   checkout:
     steps:
