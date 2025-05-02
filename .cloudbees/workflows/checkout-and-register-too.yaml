@@ -10,7 +10,7 @@ jobs:
   checkout:
     steps:
       - name: Checkout
-        uses: cloudbees-io/checkout/.cloudbees/testing@main
+        uses: cloudbees-io/checkout@v1
         id: checkout
         env:
           RUNNER_DEBUG: "1"
