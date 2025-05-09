@@ -7,7 +7,7 @@ jobs:
   Test1:
     steps:
       - name: Checkout1
-        uses: cloudbees-io/checkout/.cloudbees/testing@main
+        uses: cloudbees-io/checkout@v1
         id: checkout1
         env:
           RUNNER_DEBUG: "1"
@@ -23,7 +23,7 @@ jobs:
   Test2:
     steps:
       - name: Checkout2
-        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        uses: cloudbees-io/checkout@v1
         id: checkout2
         with:
           provider: github
@@ -47,7 +47,7 @@ jobs:
   Test3:
     steps:
       - name: Checkout3
-        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        uses: cloudbees-io/checkout@v1
         id: checkout3
         with:
           provider: github
@@ -71,7 +71,7 @@ jobs:
   Test4:
     steps:
       - name: Checkout4
-        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        uses: cloudbees-io/checkout@v1
         id: checkout4
         with:
           provider: gitlab
@@ -94,7 +94,7 @@ jobs:
   Test5:
     steps:
       - name: Checkout5
-        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        uses: cloudbees-io/checkout@v1
         id: checkout
         with:
           provider: gitlab
@@ -118,7 +118,7 @@ jobs:
   Test6:
     steps:
       - name: Checkout6
-        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        uses: cloudbees-io/checkout@v1
         id: checkout
         with:
           provider: gitlab
@@ -142,7 +142,7 @@ jobs:
   Test7:
     steps:
       - name: Checkout7
-        uses: cloudbees-io/checkout/.cloudbees/testing@CBP-10833
+        uses: cloudbees-io/checkout@v1
         id: checkout
         with:
           provider: gitlab
