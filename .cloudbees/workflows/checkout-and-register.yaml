@@ -4,7 +4,7 @@ name: My workflow
 on:
   workflow_dispatch:
 jobs:
-  Test1:
+  github:
     steps:
       - name: Checkout1
         uses: cloudbees-io/checkout@v1
@@ -20,7 +20,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout1.outputs.commit }}
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Ref = ${{ steps.checkout1.outputs.ref }}
-  Test2:
+  github-anotherrepo:
     steps:
       - name: Checkout2
         uses: cloudbees-io/checkout@v1
@@ -44,7 +44,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout2.outputs.commit }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
-  Test3:
+  github-anotherrepo-ref:
     steps:
       - name: Checkout3
         uses: cloudbees-io/checkout@v1
@@ -68,7 +68,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout3.outputs.commit }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
           echo Ref = ${{ steps.checkout3.outputs.ref }}
-  Test4:
+  gitlab:
     steps:
       - name: Checkout4
         uses: cloudbees-io/checkout@v1
@@ -91,7 +91,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout4.outputs.commit }}
           echo Commit URL = ${{ steps.checkout4.outputs.commit-url }}
           echo Ref = ${{ steps.checkout4.outputs.ref }}
-  Test5:
+  gitlab-ref:
     steps:
       - name: Checkout5
         uses: cloudbees-io/checkout@v1
@@ -115,7 +115,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
-  Test6:
+  gitlab-sha:
     steps:
       - name: Checkout6
         uses: cloudbees-io/checkout@v1
@@ -139,7 +139,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}       
-  Test7:
+  gitlab-branch:
     steps:
       - name: Checkout7
         uses: cloudbees-io/checkout@v1
