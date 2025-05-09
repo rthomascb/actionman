@@ -3,6 +3,10 @@ kind: workflow
 name: Checkout and register too
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - rthomas-test
 jobs:
   checkout:
     steps:
