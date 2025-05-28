@@ -26,5 +26,5 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Output param: ${{ jobs.buildArtRegTest.steps.registerBuildArtifact.outputs.artifact-id }}"
+          echo "Output param: ${{ needs.buildArtRegTest.steps.registerBuildArtifact.outputs.artifact-id }}"
     needs: buildArtRegTest
