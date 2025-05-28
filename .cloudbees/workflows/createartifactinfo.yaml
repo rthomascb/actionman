@@ -6,7 +6,7 @@ on:
 jobs:
   checkout:
     steps:
-      - name: Register artifact version
+      - name: Register artifact version - commit supplied
         uses: cloudbees-io/register-build-artifact@CBP-15158-2
         with:
           name: rtFactRegister
@@ -17,7 +17,13 @@ jobs:
           commit-url: "b"
           ref: "c"
           repository-url: "d"
-
+      - name: Register artifact version - no commit info
+        uses: cloudbees-io/register-build-artifact@CBP-15158-2
+        with:
+          name: rtFactRegister
+          version: 1.0.1222
+          url: docker.io/myapp/myimg:1.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609
 
 
         
