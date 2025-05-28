@@ -7,7 +7,7 @@ jobs:
   checkout:
     steps:
       - name: Register artifact version
-        uses: cloudbees-io/register-build-artifact@main
+        uses: cloudbees-io/register-build-artifact@CBP-15158-2
         with:
           name: rtFactRegister
           version: 1.0.1222
