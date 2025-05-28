@@ -10,8 +10,8 @@ jobs:
         uses: cloudbees-io/register-build-artifact@CBP-15158-2
         with:
           name: rtFactRegisterFresh
-          version: 1.0.1222
-          url: docker.io/myapp/myimg:1.0.1
+          version: 1.0.1
+          url: docker.io/myapp1/myimg:1.0.1
           digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b360x
           commit: "a"
           commit-url: "b"
@@ -21,8 +21,8 @@ jobs:
         uses: cloudbees-io/register-build-artifact@CBP-15158-2
         with:
           name: rtFactRegisterFresh2
-          version: 1.0.1222
-          url: docker.io/myapp/myimg:1.0.1
+          version: 1.0.1
+          url: docker.io/myapp1/myimg:1.0.1
           digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b360x
 
 
