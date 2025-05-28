@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   buildArtRegTest:
+    output1: ${{ steps.registerBuildArtifact.outputs.artifact-id  }}
     steps:
       - id: registerBuildArtifact
         name: catalog action test
@@ -26,5 +27,5 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Output param: ${{ needs.buildArtRegTest.steps.registerBuildArtifact.outputs.artifact-id }}"
+          echo "Output param: ${{ needs.buildArtRegTest.outputs.output1 }}"
     needs: buildArtRegTest
