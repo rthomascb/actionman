@@ -1,32 +1,33 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: create_artifact_info
-
+name: Checkout and register too
 on:
   workflow_dispatch:
-  
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - rthomas-test
+      - main
 jobs:
-  testCreateArtifactInfoAPI:
+  checkout:
     steps:
-    - id: createArtifactInfo1
-      name: Create artifact info 1
-      uses: docker://alpine/curl:latest
-      run: |
-        response=$(curl -i -X 'POST' "$URL/v2/workflows/runs/artifactinfos" -d "{\"runId\": \"$RUN_ID\", \"runAttempt\": \"$RUN_ATTEMPT\", \"name\": \"rtFact5\", \"url\": \"https://test-new-$RANDOM.url\", \"version\": \"${{ vars.RT_VERSION }}\", \"type\": \"publish\"}" -H "Authorization: Bearer $JWT" -H 'Content-Type: application/json') || command_failed=1
-        
-        # Check response
-        if [ ${command_failed:-0} -eq 1 ];
-        then
-          echo "Failed with response '$response'"
-          exit 1
-        fi
-
-        echo "Success with response '$response'"
-        exit 0
-      env:
-        JWT: ${{ cloudbees.api.token }}
-        URL: ${{ cloudbees.api.url }}
-        RUN_ID: ${{ cloudbees.run_id }}
-        RUN_ATTEMPT: ${{ cloudbees.run_attempt }}
-
-        
+      - name: Register artifact version - commit supplied
+        uses: cloudbees-io/register-build-artifact@CBP-15158-2
+        with:
+          name: rtFactRegisterFresh
+          version: 1.0.1
+          url: docker.io/myapp1/myimg:1.0.1
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b360x
+          commit: a
+          commit-url: b
+          ref: c
+          repository-url: d
+      - name: Register artifact version - no commit info
+        uses: cloudbees-io/register-build-artifact@CBP-15158-2
+        with:
+          name: rtFactRegisterFresh2
+          version: 1.0.1
+          url: docker.io/myapp1/myimg:1.0.1
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b360y
