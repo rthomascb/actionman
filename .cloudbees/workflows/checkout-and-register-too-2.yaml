@@ -22,3 +22,14 @@ jobs:
           echo Commit ID = ${{ steps.checkout.outputs.commit }}
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
+      - name: Register artifact version with commit details
+        uses: cloudbees-io/register-build-artifact@v1
+        with:
+          version: 1.0.1225
+          url: docker.io/myapp/myimg:1.0.0.5
+          repository-url: "${{ steps.checkout.outputs.repository-url }}"
+          commit: "${{ steps.checkout.outputs.commit }}"
+          commit-url: "${{ steps.checkout.outputs.commit-url }}"
+          ref: "${{ steps.checkout.outputs.ref }}"
+          name: rtFactRegister
+     
