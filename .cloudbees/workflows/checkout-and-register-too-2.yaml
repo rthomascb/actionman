@@ -7,8 +7,6 @@ jobs:
   checkout:
     steps:
       - name: Checkout
-        with:
-          ref: rthomas-test
         uses: cloudbees-io/checkout@v1
         id: checkout
         env:
