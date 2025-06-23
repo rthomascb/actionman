@@ -29,4 +29,5 @@ jobs:
           url: docker.io/myapp/myimg:1.0.0.5
           name: rtFactRegister
           repository-url: ${{ steps.checkout.outputs.repository-url }}
+          commit: ${{ steps.checkout.outputs.commit }}
      
