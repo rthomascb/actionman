@@ -28,4 +28,6 @@ jobs:
           name: rtFactRegister
           commit: ${{ steps.checkout.outputs.commit }}
           repository-url: ${{ steps.checkout.outputs.repository-url }}
+          commit-url: ${{ steps.checkout.outputs.commit-url }}
+          ref: ${{ steps.checkout.outputs.ref }}
      
