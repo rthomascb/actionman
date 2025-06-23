@@ -30,4 +30,10 @@ jobs:
           repository-url: ${{ steps.checkout.outputs.repository-url }}
           commit-url: ${{ steps.checkout.outputs.commit-url }}
           ref: ${{ steps.checkout.outputs.ref }}
+      - name: Register artifact version - default commit details from run
+        uses: cloudbees-io/register-build-artifact@v1
+        with:
+          version: 1.0.1228
+          url: docker.io/myapp/myimg:1.0.0.8
+          name: rtFactRegister    
      
