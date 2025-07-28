@@ -21,7 +21,7 @@ jobs:
           echo Commit URL = ${{ steps.checkout.outputs.commit-url }}
           echo Ref = ${{ steps.checkout.outputs.ref }}
       - name: Register artifact version
-        uses: cloudbees-io/register-build-artifact@CBP-11719
+        uses: cloudbees-io/register-build-artifact@v1
         with:
           name: rtFactRegister
           version: 1.0.1222
