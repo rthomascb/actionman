@@ -2,13 +2,10 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Caller
 on:
-  push:
-    branches:
-      - main
-
+  workflow_dispatch:
 jobs:
   call_reusable_workflow:
     uses: rthomascb/actionman/.cloudbees/workflows/checkout-and-register-too.yaml.yml@main
     with:
-      message: "Hello from the caller!"
-    secrets: inherit # or map specific secrets
+      message: Hello from the caller!
+    secrets: inherit
