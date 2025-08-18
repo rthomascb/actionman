@@ -21,6 +21,6 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build container image with Kaniko (Rich)
-        uses: cloudbees-io/kaniko@v1
+        uses: cloudbees-io/kaniko@CBP-20707
         with:
           destination: docker.io/rthomascb/docker-demo:0.0.1-SNAPSHOT
