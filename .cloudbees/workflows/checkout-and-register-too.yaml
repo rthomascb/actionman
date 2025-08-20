@@ -30,3 +30,4 @@ jobs:
           repository-url: ${{ steps.checkout.outputs.repository-url }}
           commit: ${{ steps.checkout.outputs.commit }}
           ref: ${{ steps.checkout.outputs.ref }}
+          no-commit: true
