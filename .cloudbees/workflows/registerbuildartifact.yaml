@@ -14,6 +14,6 @@ jobs:
           version: 1.0.0
           url: docker.io/myapp/myimg:1.0.0
           digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609
-          repository-url: https://github.com/rthomascb/actionman
-          commit: 4580aedba8b5e087197a1077326cb5461dc10d7a
-          ref: refs/tags/v1
+          repository-url: ${{cloudbess.scm.repository}}
+          commit: ${{cloudbess.scm.sha}}
+          ref: ${{cloudbess.scm.branch}}
