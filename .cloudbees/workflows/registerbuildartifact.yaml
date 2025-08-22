@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     steps:
-      - name: Inform system that an artifact version was created
+      - name: Specify commit
         uses: cloudbees-io/register-build-artifact@CBP-20704
         continue-on-error: true
         with:
@@ -15,5 +15,14 @@ jobs:
           url: docker.io/myapp/myimg:1.0.0
           digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609
           repository-url: ${{cloudbees.scm.repository}}
-          commit: ""
+          commit: "zzz"
           ref: ${{cloudbees.scm.ref}}
+      - name: Use default commit
+        uses: cloudbees-io/register-build-artifact@CBP-20704
+        continue-on-error: true
+        with:
+          name: rtFactRegister
+          version: 1.0.0
+          url: docker.io/myapp/myimg:1.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609
+    
